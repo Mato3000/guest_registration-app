@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Additional Members</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Enter Details for Additional Members</h2>
+    <form id="membersForm">
+        <label for="members">Names of Additional Guests:</label>
+        <input type="text" id="members">
+
+        <button type="button" onclick="saveMembersData()">Next</button>
+    </form>
+
+    <script>
+        function saveMembersData() {
+            let members = document.getElementById("members").value;
+            localStorage.setItem("members", members);
+            window.location.href = 'confirmation.html';
+        }
+    </script>
+</body>
+</html>
