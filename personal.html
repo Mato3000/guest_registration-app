@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Enter Personal Details</h2>
+    <form id="personalForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="contact">Contact Number:</label>
+        <input type="text" id="contact" required>
+
+        <button type="button" onclick="savePersonalData()">Next</button>
+    </form>
+
+    <script>
+        function savePersonalData() {
+            let name = document.getElementById("name").value;
+            let contact = document.getElementById("contact").value;
+            localStorage.setItem("name", name);
+            localStorage.setItem("contact", contact);
+            window.location.href = 'vehicle.html';
+        }
+    </script>
+</body>
+</html>
