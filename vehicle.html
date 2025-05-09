@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Enter Vehicle Details</h2>
+    <form id="vehicleForm">
+        <label for="car">Car Registration Number:</label>
+        <input type="text" id="car" required>
+
+        <label for="vehicleType">Vehicle Type:</label>
+        <input type="text" id="vehicleType">
+
+        <button type="button" onclick="saveVehicleData()">Next</button>
+    </form>
+
+    <script>
+        function saveVehicleData() {
+            let car = document.getElementById("car").value;
+            let vehicleType = document.getElementById("vehicleType").value;
+            localStorage.setItem("car", car);
+            localStorage.setItem("vehicleType", vehicleType);
+            window.location.href = 'members.html';
+        }
+    </script>
+</body>
+</html>
