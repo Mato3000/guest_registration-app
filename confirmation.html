@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Review Your Registration</h2>
+    <p><strong>Name:</strong> <span id="confirmName"></span></p>
+    <p><strong>Contact:</strong> <span id="confirmContact"></span></p>
+    <p><strong>Car Registration:</strong> <span id="confirmCar"></span></p>
+    <p><strong>Vehicle Type:</strong> <span id="confirmVehicleType"></span></p>
+    <p><strong>Additional Guests:</strong> <span id="confirmMembers"></span></p>
+
+    <button onclick="submitData()">Submit</button>
+
+    <script>
+        document.getElementById("confirmName").textContent = localStorage.getItem("name");
+        document.getElementById("confirmContact").textContent = localStorage.getItem("contact");
+        document.getElementById("confirmCar").textContent = localStorage.getItem("car");
+        document.getElementById("confirmVehicleType").textContent = localStorage.getItem("vehicleType");
+        document.getElementById("confirmMembers").textContent = localStorage.getItem("members");
+
+        function submitData() {
+            let data = {
+                name: localStorage.getItem("name"),
+                contact: localStorage.getItem("contact"),
+                car: localStorage.getItem("car"),
+                vehicleType: localStorage.getItem("vehicleType"),
+                members: localStorage.getItem("members")
+            };
+
+            fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            }).then(() => {
+                alert("Registration Submitted!");
+                localStorage.clear();
+                window.location.href = "index.html";
+            });
+        }
+    </script>
+</body>
+</html>
